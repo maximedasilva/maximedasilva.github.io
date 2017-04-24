@@ -151,7 +151,7 @@ $(function() {
 
   window.map = function(candidate) {
     var id="";
-    if(mymap.getZoom()>7 && actualZoom=="region" && selectionRegion!=""){
+    if(mymap.getZoom()>7){
         actualZoom="departement"
         id=selectionRegion;
     }
@@ -159,9 +159,9 @@ $(function() {
       actualZoom="city";
       id=selectionDept;
     }
-    else if(actualZoom=="region"){
+    else if(zoom<=7||actualZoom="region"){
       actualZoom="region";
-      id="nothing";
+      id="";
       selection="";
     }
     current_Candidate=candidate;
@@ -172,7 +172,7 @@ $(function() {
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoibWF4aW1lZGFzaWx2YSIsImEiOiJjajBtZmh0NzEwMDByMzJyengxMm9rcjJzIn0.Y_8ayqiCFwUG-oqdyN7fcg'
       }).addTo(mymap);
-
+    if(actualZoom!="departement")
     var myurl = "https://evening-scrubland-80604.herokuapp.com/"+actualZoom+"/"+id;
     $.ajax({
       dataType: "json",
