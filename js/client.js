@@ -151,15 +151,15 @@ $(function() {
 
   window.map = function(candidate) {
     var id="";
-    if(mymap.getZoom()>7){
+    if(mymap.getZoom()>7&& selectionRegion!=""){
         actualZoom="departement"
-        id="01";
+        id=selectionRegion;
     }
     else if(mymap.getZoom() >8.5&&actualZoom=="departement"&& selectionDept!=""){
       actualZoom="city";
       id=selectionDept;
     }
-    else if(mymap.getZoom() <=7||actualZoom=="region"){
+    else if(mymap.getZoom() <=7){
       actualZoom="region";
       id="";
       selection="";
