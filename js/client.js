@@ -217,11 +217,12 @@ $(function() {
         mymap.on('zoomend', refreshData);
 
       }
-    var refreshData=  function() {
+    function refreshData() {
       mymap.off("zoomend");
       map(current_Candidate);
       mymap.on('zoomend',refreshData);
       }
+
     });
   }
 });
