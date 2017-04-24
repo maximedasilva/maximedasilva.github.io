@@ -172,7 +172,6 @@ $(function() {
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoibWF4aW1lZGFzaWx2YSIsImEiOiJjajBtZmh0NzEwMDByMzJyengxMm9rcjJzIn0.Y_8ayqiCFwUG-oqdyN7fcg'
       }).addTo(mymap);
-    if(actualZoom!="departement")
     var myurl = "https://evening-scrubland-80604.herokuapp.com/"+actualZoom+"/"+id;
   //  var myurl = "http://localhost:5000/"+actualZoom+"/"+id;
     $.ajax({
