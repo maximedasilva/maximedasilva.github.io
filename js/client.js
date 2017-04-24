@@ -153,13 +153,13 @@ $(function() {
     var id="";
     if(mymap.getZoom()>7){
         actualZoom="departement"
-        id=selectionRegion;
+        id="01";
     }
     else if(mymap.getZoom() >8.5&&actualZoom=="departement"&& selectionDept!=""){
       actualZoom="city";
       id=selectionDept;
     }
-    else if(zoom<=7||actualZoom="region"){
+    else if(mymap.getZoom() <=7||actualZoom=="region"){
       actualZoom="region";
       id="";
       selection="";
@@ -174,6 +174,7 @@ $(function() {
       }).addTo(mymap);
     if(actualZoom!="departement")
     var myurl = "https://evening-scrubland-80604.herokuapp.com/"+actualZoom+"/"+id;
+  //  var myurl = "http://localhost:5000/"+actualZoom+"/"+id;
     $.ajax({
       dataType: "json",
       url: myurl,
