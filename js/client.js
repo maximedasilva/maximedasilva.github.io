@@ -214,20 +214,13 @@ $(function() {
         });
         geojsonLayer.addTo(mymap);
         geojsonLayer.setStyle(style);
-        mymap.on('zoomend', function() {
-            if(mymap.getZoom() > 8.5&&actualZoom=="region")
-            {
-              map(current_Candidate);
-            }
-            if (mymap.getZoom() > 7&&actualZoom=="departement") {
+        mymap.on('zoomend', refreshData);
 
-                console.log(selection);
-
-              map(current_Candidate);
-            }
-
-        });
-
+      }
+    var refreshData=  function() {
+      mymap.off("zoomend");
+      map(current_Candidate);
+      mymap.on('zoomend',refreshData);
       }
     });
   }
