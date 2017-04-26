@@ -1,11 +1,25 @@
 //L.geoJSON(data).addTo(mymap);
 
 $(function() {
-  var selectionDept="";
-  var selectionRegion="";
-  var actualZoom="region";
-  var totalCandidate=0;
-  var current_Candidate="";
+
+  var selectionDept = "";
+  var selectionRegion = "";
+  var actualZoom = "region";
+  var totalCandidate = 0;
+  var current_Candidate = "";
+  var candidats = [
+    "Poutou",
+    "arthaud",
+    "Melenchon",
+    "Hamon",
+    "Lassalle",
+    "Macron",
+    "fillon",
+    "dupontAignan",
+    "Asselineau",
+    "Cheminade",
+    "lepen"
+  ]
   var colors = {
     Poutou: "rgb(90, 10, 10)",
     arthaud: "rgb(255, 241, 57)",
@@ -19,12 +33,60 @@ $(function() {
     Cheminade: "rgb(153, 157, 157)",
     lepen: "rgb(70, 66, 66)"
   }
+  var urlForStats = "https://evening-scrubland-80604.herokuapp.com/date";
+  $.ajax({
+    dataType: "json",
+    url: urlForStats,
+    jsonpCallback: 'callback',
+    type: 'GET',
 
+    success: function(data) {
+      console.log("test");
+      var ctx = document.getElementById("canvas2");
+      lineChartData = {}; //declare an object
+      lineChartData.labels = []; //add 'labels' element to object (X axis)
+      lineChartData.datasets = []; //add 'datasets' array element to object
+
+        var isLabelsTitleAdded=false;
+      for (a in candidats) {
+        y = [];
+        lineChartData.datasets.push({}); //create a new line dataset
+        dataset = lineChartData.datasets[a];
+        lineChartData.datasets[a].labels=candidats[a];
+        console.log(lineChartData.datasets[a]);
+        dataset.data = []; //contains the 'Y; axis data
+        console.log(candidats[a]);
+        dataset.backgroundColor = colors[candidats[a]];
+        dataset.strokeColor = colors[candidats[a]];
+        dataset.label=candidats[a];
+
+        for (e in data.dates) {
+
+          if(!isLabelsTitleAdded)
+          {
+            lineChartData.labels.push(" "); //adds x axis labels
+
+          }
+          console.log(data.dates[e][candidats[a]]);
+          y.push(data.dates[e][candidats[a]])
+
+        } //for x
+isLabelsTitleAdded=true;
+        lineChartData.datasets[a].data = y; //send new line data to dataset
+      } //for line
+      console.log(lineChartData.datasets['9']);
+        myLineChart = new Chart(ctx,{
+          type: "line",
+
+          data:lineChartData,
+        }
+);
+    }
+  });
   function updateStats(data) {
     $('#resultCanvas').remove(); // this is my <canvas> element
     $('#test').append('<canvas id="resultCanvas" height="200"></canvas>');
     var ctx = document.getElementById("resultCanvas");
-
     var myChart = new Chart(ctx, {
       type: 'pie',
       data: {
@@ -89,6 +151,11 @@ $(function() {
       },
       options: {}
     });
+    var candidatesLayout = 0;
+    for (e in data) {
+      candidatesLayout += data[e];
+    }
+
   }
 
   function style(feature) {
@@ -110,23 +177,23 @@ $(function() {
           fillOpacity: 0.7,
           fillColor: colors[key]
         };
-      }
-      else {
-        var number=255-(255*(feature.properties.candidates[current_Candidate]/totalCandidate));
+      } else {
+        var number = 255 - (255 * (feature.properties.candidates[current_Candidate] / totalCandidate));
         console.log(feature.properties.candidates[current_Candidate]);
         console.log(totalCandidate);
-        console.log(255*(feature.properties.candidates[current_Candidate]/totalCandidate));
-        var param='rgb('+(Math.round(number)).toString()+','+(Math.round(number)).toString()+','+(Math.round(number)).toString()+')';
-        return{
-        weight: 0.4,
-        opacity: 1,
-        color: 'black',
-        dashArray: '1',
-        fillOpacity: 0.7,
-        fillColor: param
-      }
+        console.log(255 * (feature.properties.candidates[current_Candidate] / totalCandidate));
+        var param = 'rgb(' + (Math.round(number)).toString() + ',' + (Math.round(number)).toString() + ',' + (Math.round(number)).toString() + ')';
+        return {
+          weight: 0.4,
+          opacity: 1,
+          color: 'black',
+          dashArray: '1',
+          fillOpacity: 0.7,
+          fillColor: param
+        }
 
-    } }else {
+      }
+    } else {
       return {
         weight: 0.4,
         opacity: 1,
@@ -147,33 +214,37 @@ $(function() {
     accessToken: 'pk.eyJ1IjoibWF4aW1lZGFzaWx2YSIsImEiOiJjajBtZmh0NzEwMDByMzJyengxMm9rcjJzIn0.Y_8ayqiCFwUG-oqdyN7fcg'
   }).addTo(mymap);
 
-
-
   window.map = function(candidate) {
-    var id="";
-    if(mymap.getZoom()>7&& selectionRegion!=""){
-        actualZoom="departement"
-        id=selectionRegion;
+    var id = "";
+    if (mymap.getZoom() > 7.5 && selectionDept != "") {
+      actualZoom = "city";
+      id = selectionDept;
+
+    } else if (mymap.getZoom() > 6.5 && selectionRegion != "") {
+      actualZoom = "departement"
+      id = selectionRegion;
+      selectionDept = "";
+    } else if (mymap.getZoom() <= 6.5) {
+      actualZoom = "region";
+      id = "";
+      selection = "";
+      selectionDept = "";
+      selectionRegion = "";
     }
-    else if(mymap.getZoom() >8.5&&actualZoom=="departement"&& selectionDept!=""){
-      actualZoom="city";
-      id=selectionDept;
-    }
-    else if(mymap.getZoom() <=7){
-      actualZoom="region";
-      id="";
-      selection="";
-    }
-    current_Candidate=candidate;
-      mymap.eachLayer(function(layer) {
+    current_Candidate = candidate;
+    mymap.eachLayer(function(layer) {
+
+      if (layer._url != "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}") {
         mymap.removeLayer(layer);
-      });
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoibWF4aW1lZGFzaWx2YSIsImEiOiJjajBtZmh0NzEwMDByMzJyengxMm9rcjJzIn0.Y_8ayqiCFwUG-oqdyN7fcg'
-      }).addTo(mymap);
-    var myurl = "https://evening-scrubland-80604.herokuapp.com/"+actualZoom+"/"+id;
-  //  var myurl = "http://localhost:5000/"+actualZoom+"/"+id;
+        console.log(layer);
+      }
+
+    });
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoibWF4aW1lZGFzaWx2YSIsImEiOiJjajBtZmh0NzEwMDByMzJyengxMm9rcjJzIn0.Y_8ayqiCFwUG-oqdyN7fcg'
+    }).addTo(mymap);
+    var myurl = "https://evening-scrubland-80604.herokuapp.com/" + actualZoom + "/" + id;
     $.ajax({
       dataType: "json",
       url: myurl,
@@ -181,18 +252,22 @@ $(function() {
       type: 'GET',
 
       success: function(data) {
-        totalCandidate=0;
-
+        totalCandidate = 0;
+        totalCandidatesGlobal = 0;
         var geojsonLayer = L.geoJSON(data, {
           onEachFeature: function(feature, layer) {
-            if(candidate!="everybody"){
-              if (feature.properties.candidates){
-                try{
-              totalCandidate+=feature.properties.candidates[candidate];
+            if (candidate != "everybody") {
+              if (feature.properties.candidates) {
+                try {
+                  totalCandidate += feature.properties.candidates[candidate];
+                  for (e in feature.properties.candidates) {
+
+                    totalCandidatesGlobal += feature.properties.candidates[e];
+
+                  }
+                } catch (error) {}
+              }
             }
-            catch(error){}
-          }
-        }
             if (feature.properties && feature.properties.nom) {
 
               layer.bindPopup(feature.properties.nom, {
@@ -202,25 +277,38 @@ $(function() {
               });
               layer.on('click', function() {
                 layer.openPopup();
-                if(actualZoom=='region')
-                {selectionRegion=feature.properties.NUMERO;}
-                else if(actualZoom=="departement"){selectionDept=feature.properties.NUMERO;}
-                  updateStats(feature.properties.candidates);
+                if (actualZoom == 'region') {
+                  selectionRegion = feature.properties.NUMERO;
+
+                } else if (actualZoom == "departement") {
+                  selectionDept = feature.properties.NUMERO;
                 }
-              );
+                updateStats(feature.properties.candidates);
+
+              });
 
             }
           }
         });
+        function retrieveZoom() {
+          mymap.off("zoomstart");
+          myzoom = mymap.getZoom();
+          mymap.on('zoomstart', retrieveZoom);
+        }
+
+        function refreshData() {
+          mymap.off("zoomend");
+
+          map(current_Candidate);
+
+          mymap.on('zoomend', refreshData);
+          mymap.on('zoomstart', retrieveZoom);
+        }
+
         geojsonLayer.addTo(mymap);
         geojsonLayer.setStyle(style);
         mymap.on('zoomend', refreshData);
-
-      }
-    function refreshData() {
-      mymap.off("zoomend");
-      map(current_Candidate);
-      mymap.on('zoomend',refreshData);
+        mymap.on('zoomstart', retrieveZoom);
       }
 
     });
