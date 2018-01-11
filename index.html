@@ -1,21 +1,394 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css"></link>
-    <link rel="stylesheet" href="css/style.css"></link>
-    <link rel="stylesheet" href="css/bootstrap.min.css"></link>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/client.js">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Home | Corlate</title>
 
-    </script>
-
-
-    <title>Portfolio-Da Silva Maxime</title>
+  <!-- core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+  <link rel="shortcut icon" href="images/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-<body>
-  
+<!--/head-->
+
+<body class="homepage">
+
+  <header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+          <a class="navbar-brand" href="index.html"><img class="img-responsive" src="images/ensc2.png" alt="logo"/></a>
+
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Accueil</a></li>
+            <li><a href="sources/chiffresCles.html">Chiffres clés</a></li>
+            <li ><a href="sources/soin.html">Se soigner</a></li>
+            <li ><a href="sources/cas_concret.html">Cas concret</a></li>
+            <li ><a href="sources/quizz.html">Avez vous un problème avec l'alcool?</a></li>
+
+          </ul>
+        </div>
+      </div>
+      <!--/.container-->
+    </nav>
+    <!--/nav-->
+
+  </header>
+  <!--/header-->
+
+  <section id="main-slider" class="no-margin">
+    <div class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+        <li data-target="#main-slider" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner">
+
+        <div class="item active" style="background-image: url(images/slider/bg1.jpg); ">
+          <div class="container">
+            <div class="row slide-margin">
+              <div class="col-sm-6">
+                <div class="carousel-content">
+                  <h1 style="color: white; font-size: pt;"><br><br><br>Syndrôme de Korsakoff</h1>
+                  <h2>École Nationale Supérieure de Cognitique</h2>
+                </div>
+              </div>
+              <div class="col-sm-6 hidden-xs animation animated-item-4">
+                <div class="slider-img">
+                  <img src="images/slider/ensc.png" class="img-responsive">
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+        <!--/.item-->
+        <div class="item" style="background-image: url(images/slider/bg1.jpg); ">
+          <div class="container">
+            <div class="row slide-margin">
+              <div class="col-sm-6">
+                <div class="carousel-content">
+                  <h1 style="color: white; font-size: pt;"><br><br><br>Syndrôme de Korsakoff</h1>
+                  <h2>Institut de Formation des Ergothérapeutes</h2>
+                </div>
+              </div>
+              <div class="col-sm-6 hidden-xs animation animated-item-4">
+                <div class="slider-img"><br><br><br><br>
+                  <img src="images/slider/IFE.png" class="img-responsive">
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <!--/.item-->
+
+
+      </div>
+      <!--/.carousel-inner-->
+    </div>
+    <!--/.carousel-->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>
+        </a>
+  </section>
+  <!--/#main-slider-->
+  <section class="content">
+    <div class="container">
+      <div class="row ">
+
+        <div class="text col-lg-offset-2 col-lg-8 col-md-12 wow fadeInRight center">
+          <h1>Introduction</h1>
+          <p>Selon l’OMS, l’alcool est le troisième facteur de risque de décès prématuré et d’incapacité dans le monde, et a donc des répercussions majeures sur la santé publique, avec 2 millions de personnes alcoolo-dépendantes en France, en 2010, et plus
+            de 50% qui présentent des troubles cognitifs. Elle dit également que l’usage nocif de l’alcool est un facteur étiologique dans plus de 200 maladies et traumatismes. De plus, selon l’Inserm, les hommes au chômage et les travailleurs indépendants
+            constituent les populations les plus à risque. Cependant, la consommation d‘alcool en France a été divisée par deux entre 1960 et 2009, avec environ 13,6% des adultes qui ne boivent jamais et 9,7% qui boivent tous les jours. </p>
+          <p>Parmi les pathologies liées à l'alcoolo-dépendance on retrouve le syndrome de Korsakoff, qui est plus particulièrement dû à un alcoolisme chronique et touche davantage les hommes âgées de 45 à 65 ans.
+            <p>
+              <h1>Présentation du syndrôme</h1>
+              <p>Le syndrome de Korsakoff, aussi appelé « maladie de la mémoire », est une pathologie neurologique causée par une importante carence en thiamine au niveau du cerveau. Ce syndrome engendre donc des lésions irréversibles dans certaines régions
+                du cerveau. Cela se caractérise par des troubles mnésiques, avec notamment une amnésie antérograde (oublis importants des événements survenus après l’apparition du syndrome), et parfois une amnésie rétrograde (oublis des informations précédant
+                cette apparition), des troubles moteurs et des troubles cognitifs, qui dépendent du stade d'alcoolisation de la personne.</p>
+              <p>Ces patients rencontrent des difficultés telles qu'un oubli de la date et du lieu (désorientation spatio-temporelle), ont des reconnaissances erronées de certaines personnes (fausses reconnaissances), partagent des souvenirs qui sont irréels
+                (confabulations) et n'ont pas conscience de leurs difficultés et de leur maladie (anosognosie). Ils vont également présenter une modification de leur comportement, des troubles de l'équilibre et de la marche, des tremblements et des troubles
+                visuels. Ces différentes altérations vont avoir un impact important sur leur qualité de vie. En effet, ils pourront rencontrer des difficultés pour réaliser toutes les activités de la vie quotidienne, telles que les soins personnels, le
+                travail ou encore les loisirs, mais également dans leurs relations interpersonnelles.
+              </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="feature">
+    <div class="container">
+      <div class="center wow fadeInDown">
+        <h2>Caractéristiques de cette maladie</h2>
+
+      </div>
+
+      <div class="row">
+        <div class="features">
+          <div class="row ">
+            <div class="col-md-4 col-lg-4  col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 wow fadeInDown">
+                  <img src="images/vision.png" width=100 alt=""></div>
+                <div class="col-md-8 col-sm-8 col-xs-8 wow fadeInDown">
+                  <h2>Reconnaissances erronées
+          </h2>
+                  <h3> de certaines personnes</h3>
+                </div>
+              </div>
+</div>
+              <!--/.col-md-4-->
+
+              <div class="col-md-4 col-lg-4 col-lg-offset-4 col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-4 wow fadeInDown">
+                    <img src="images/walk.png" width=100 alt=""></div>
+                  <div class="col-md-8 col-sm-8 col-xs-8 wow fadeInDown">
+                    <h2>Troubles
+          </h2>
+                    <h3> de l'équilibre et de la marche</h3>
+                  </div>
+                </div>
+</div>
+                <!--/.col-md-4-->
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-lg-4  col-sm-4 col-md-offset-4 col-lg-offset-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-4 wow fadeInDown">
+                      <img src="images/brain.png" width=100 alt=""></div>
+                    <div class="col-md-8 col-sm-8 col-xs-8 wow fadeInDown">
+                      <h2>Amnésie
+          </h2>
+                      <h3> rétrograde ou antérograde</h3>
+                    </div>
+                  </div>
+
+                  <!--/.col-md-4-->
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-md-4 col-lg-4  col-sm-4  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4 col-xs-4 wow fadeInDown">
+                        <img src="images/question.png" width=100 alt=""></div>
+                      <div class="col-md-8 col-sm-8 col-xs-8 wow fadeInDown">
+                        <h2>Inconscience
+</h2>
+                        <h3> de la maladie</h3>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!--/.col-md-4-->
+
+                  <div class="col-md-4 col-lg-4  col-sm-4 col-md-offset-4 col-lg-offset-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4 col-xs-4 wow fadeInDown">
+                        <img src="images/dream.png" width=100 alt=""></div>
+                      <div class="col-md-8 col-sm-8 col-xs-8 wow fadeInDown">
+                        <h2>Confabulation
+          </h2>
+                        <h3> et partage de souvenirs irréels</h3>
+                      </div>
+                    </div>
+
+                    <!--/.col-md-4-->
+                  </div>
+
+                </div>
+                <!--/.services-->
+              </div>
+              <!--/.row-->
+            </div>
+            <!--/.container-->
+  </section>
+  <!--/#feature-->
+  <section id="responsible">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+          <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="media">
+              <div class="pull-left team">
+                <a href="#"><img class="media-object" src="images/slider/ENSC.png" width=150 alt=""></a>
+              </div>
+
+              <div class="media-body">
+                <h4>Thomas Casado</h4>
+
+
+              </div>
+            </div>
+            <!--/.media -->
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+          <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="media">
+              <div class="pull-left team">
+                <a href="#"><img class="media-object" src="images/slider/ENSC.png" width=150 alt=""></a>
+              </div>
+
+              <div class="media-body">
+                <h4>Maxime Da Silva</h4>
+
+
+              </div>
+            </div>
+            <!--/.media -->
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+          <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="media">
+              <div class="pull-left team">
+                <a href="#"><img class="media-object" src="images/slider/ENSC.png" width=150 alt=""></a>
+              </div>
+
+              <div class="media-body">
+                <h4>Emile Netter</h4>
+
+
+              </div>
+            </div>
+            <!--/.media -->
+          </div>
+        </div>
+
+  </section>
+  <section id="responsible">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-lg-offset-2 col-md-offset-2 col-lg-4 col-md-4 col-sm-4 ">
+          <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="media">
+              <div class="pull-left team">
+                <a href="#"><img class="media-object" src="images/slider/IFE.png" width=150 alt=""></a>
+              </div>
+
+              <div class="media-body">
+                <h4>Madeleine Drouet</h4>
+
+
+              </div>
+            </div>
+            <!--/.media -->
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+          <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="media">
+              <div class="pull-left team">
+                <a href="#"><img class="media-object" src="images/slider/IFE.png" width=150 alt=""></a>
+              </div>
+
+              <div class="media-body">
+                <h4>Camille Corsan</h4>
+
+
+              </div>
+            </div>
+            <!--/.media -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="uparrow">
+
+    <img src="images/upArrow.png" width="60"></img>
+  </div>
 </body>
+</section>
+<footer id="footer" class="midnight-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        &copy; 2018 <a target="_blank" href="https://github.com/maximedasilva" title="Thomas Casado-Émile Netter-Maxime Da Silva">Thomas Casado-Émile Netter-Maxime Da Silva</a>.
+      </div>
+      <div class="col-sm-6">
+        <p class="pull-right">
+        ENSC 3A-tous Droits réservés.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--/#footer-->
+
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+$(document).ready(function() {
+     $('.uparrow').click(function(){
+          $('html, body').animate({scrollTop:0}, 'slow');
+          return false;
+     });
+});
+$(".uparrow").hide();
+  $(function() {
+    $(window).scroll(function() {
+
+      if ($(this).scrollTop() > 200&&document.body.clientWidth>800) {
+        $('.uparrow').fadeIn(500);
+
+      } else {
+        $('.uparrow').fadeOut(500);
+
+      }
+    })
+  });
+</script>
+</body>
+
 </html>
