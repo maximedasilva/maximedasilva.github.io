@@ -172,9 +172,7 @@ position:relative;
 .container h1{
   font-size:60px;
 }
-.content h2{
-  font-size:25px;
-}
+
 .demarque{
   font-size:50px;
 }
@@ -205,9 +203,21 @@ border-radius:3px;
   grid-row:1;
   grid-column:2;
 }
-
+p{
+  font-size:25px!important;
+}
+h2{
+  font-size:60px!important;
+}
+#text>img{
+  width:80%
+}
+#text a, #text p{
+  font-size:30px !important;
+}
 #text{
   font-family: 'Raleway', sans-serif;
+
   text-align:center;
   line-height: 0.8em;
   grid-row:1;
