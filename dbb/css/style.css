@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,700');
+.container{
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-position:50% 70%;
+  background-size: auto 200%;
+  background-attachment: fixed;
+  margin-top:0px;
+  height: 350px;
+  clip-path: polygon(0 0,100% 0, 100% 70%,0 100%);
+
+}
+.filter{
+    background-color: rgba(0, 0, 0, 0.6);
+    height:100%;
+}
+.container h1{
+  font-family: 'Raleway', sans-serif;
+  font-weight:200;
+  font-size:5em;
+  padding:0px;
+  margin:0px;
+  color: rgb(230,230,230);
+  position: relative;
+}
+.Centering{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.darker > h1:before, .Centering > h2:before{
+  content: '';
+   border-bottom: 4px solid #702d28;
+   width: 100%;
+   position: absolute;
+   Left: 5%;
+   top: 100%;
+}
+
+.darker{
+  background-color:rgba(0,0,0,0.5);
+  width:100%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body{
+  background-image: url("../img/cartons.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin:0px;
+  padding:0px;
+
+}
+
+.content{
+  background-color:rgba(200,200,200,0.85);
+  border-radius:3px;
+  display: flex;
+  position:relative;
+  align-items: center;
+  justify-content: center;
+  width:35%;
+  padding:20px;
+  max-width: 70%;
+}
+.mainContent{
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  padding-top:70px;
+   }
+.content H2{
+  color: rgb(0, 0, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size:2em;
+  font-weight: 700;
+}
+.demarque{
+  color: rgb(112, 45, 40);
+  font-family: 'Montserrat', sans-serif;
+  font-size:2.3em;
+  font-weight: 200;
+
+}
+.content p{
+  font-family: 'Montserrat', sans-serif;
+  font-size:1em;
+  font-weight: 400;
+  line-height: 2.1em;
+  text-align:justify;
+}
+.red{
+  color:rgb(112, 45, 40);
+font-weight: 700;
+}
+.image{
+  width:40%;
+Left:10%;
+top:10%;
+  display:inline-block;
+  position:relative;
+  height:auto;
+}
+.imageWines{
+  width:40%;
+  height:auto;
+  padding-Right:50px;
+  padding-Left:50px
+}
+.imageWines img{
+  width:100%;
+}
+.image img{
+  width:100%;
+}
+.separator{
+  min-height:500px;
+  margin-top:20px;
+  clip-path: polygon(0 30%, 100% 0,100% 70%, 0 100%);
+  background-image: url("../img/transition_2.jpg");
+    background-size: 100% auto;
+    background-position: 0 50%;
+
+}
+.imageWines>img:hover{
+transform: scale(1.1);
+}
+.imageWines>img
+{
+  transition: all .2s ease-in-out;
+}
+.Centering{
+  transition: all .2s ease-in-out;
+}
+.Centering:hover{
+  transform: translate(-10px,0%);
+}
+.Centering>h2:hover:before{
+  content: '';
+   border-bottom: 4px solid #702d28;
+   width: 100%;
+   position: absolute;
+   Left: 7%;
+   top: 103%;
+}
+.Centering > h2, .imageWines >h2{
+  font-family: 'Raleway', sans-serif;
+  font-weight:200;
+  font-size:4em;
+color:rgb(230,230,230);
+text-align: center;
+position:relative;
+}
+
+.imageWines >h2{
+  color:rgb(189, 189, 189);
+    font-size:2.3em;
+}
+
+
+.footer p, .footer a, .footer h3{
+  color:rgb(230,230,230);
+}
+
+@media screen and (max-width: 1200px) {
+.container h1{
+  font-size:60px;
+}
+.content h2{
+  font-size:25px;
+}
+.demarque{
+  font-size:50px;
+}
+}
+
+.footer{
+  background-color:rgba(200,200,200,0.5);
+border-radius:3px;
+  margin-top:40px;
+  margin-bottom:40px;
+  display: grid;
+      grid-template-columns: repeat(3, [col] auto ) ;
+      grid-template-rows: repeat(1, [row] auto  );
+
+}
+.footercontent{
+
+  grid-column: 2;
+  grid-row:1;
+        display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, [col] auto ) ;
+    grid-template-rows: repeat(1, [row] auto  );
+}
+.footercontent #text{
+  padding-top:10px;
+  padding-bottom:10px;
+  grid-row:1;
+  grid-column:2;
+}
+
+#text{
+  font-family: 'Raleway', sans-serif;
+  text-align:center;
+  line-height: 0.8em;
+  grid-row:1;
+  grid-column:2;
+}
+#text a:hover{
+  color:rgb(112, 45, 40)
+}
+#text a
+{
+  transition: all .2s ease-in-out;
+}
+#little{
+  color:rgba(200,200,200,0.7);
+}
+
+@media screen and (max-width: 800px) {
+  .mainContent{
+    width:100%!important;
+    padding-top:70px;
+    display: block;
+     }
+     .image{
+       width:80%;
+       height:auto;
+display:none;
+
+     }.content{
+        min-width:80%;
+        Left:10%;
+           padding:0px !important;
+
+     }
+.text{
+  margin:20px;
+}
+.imageWines{
+  min-width:80% !important;
+  padding-Left:10% !important;
+}
+.footer{
+display:block !important;
+}
+}
